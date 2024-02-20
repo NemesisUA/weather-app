@@ -5,12 +5,6 @@ import './TripsGallery.css'
 function TripsGallery() {
   const trips = useSelector(state => state.trips.trips);
 
-  const callTripModal = () => {
-    // call modal window
-    alert('modal!!!!')
-  }
-
-  console.log('trips-', trips);
   return (
     <ul className="trips-gallery">
       {
@@ -18,13 +12,6 @@ function TripsGallery() {
           <TripCard key={trip.id} {...trip} />
         ))
       }
-
-      <li key={'add'}>
-        <button onClick={callTripModal} >
-          <span>+</span>
-          <span>Add Trip</span>
-        </button>
-      </li>
     </ul>
   )
 }

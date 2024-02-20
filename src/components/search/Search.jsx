@@ -1,4 +1,4 @@
-import React from 'react'
+import './Search.css'
 
 function Search({ city, setCity, handleSearch }) {
 
@@ -6,6 +6,7 @@ function Search({ city, setCity, handleSearch }) {
   return (
     <div className="serch-engine">
       <input
+        className='search-input'
         placeholder='Search your trip'
         value={city}
         onChange={(e) => setCity(e.target.value)}

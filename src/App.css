@@ -1,17 +1,72 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
-  max-width: 1200px;
+  justify-content: center;
   min-width: 320px;
-  margin: 50px auto;
+  max-width: 1200;
   background-color: #fff;
 }
 
 .trips-block {
-  width: 100%;
-  padding: 50px 10px;
+
+  padding: 50px 20px;
 }
 
-@media screen and (max-width: 768px) {
+.trips-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.open-modal-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  font-weight: bold;
+  font-size: 18px;
+  border: 1px soild gray;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.open-modal-btn:hover {
+  color: #2f6fe4;
+  background-color: #eee;
+  cursor: pointer;
+  border: 1px solid #2f6fe4;
+  box-shadow: 2px 2px 6px gray;
+}
+
+button {
+  font-size: 16px;
+  padding: 0.5rem 0.8rem;
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 2px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #2f6fe4;
+  border: 1px solid #2f6fe4;
+}
+
+input {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
   .container {
     flex-direction: column;
   }

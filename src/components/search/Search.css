@@ -1,0 +1,20 @@
+.serch-engine {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  margin: 10px 0 20px;
+}
+
+.serch-engine button {
+  padding: 0.5rem;
+}
+
+.serch-engine button {
+  padding: 0.5rem;
+}
+
+.search-input {
+  padding: 0.5rem;
+  height: 100%;
+  outline: none;
+}

@@ -1,0 +1,61 @@
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease-in-out;
+}
+
+.modal {
+  background-color: #fff;
+  width: 70%;
+  max-width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid gray;
+  outline: 1px solid white;
+  outline-offset: 1px;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 5px gray;
+  transition: all 0.5s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 24px;
+  width: 24px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+svg:hover {
+  opacity: 1;
+}
+
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid gray;
+}
+
+.modal-heading:last-child {
+  border-top: 1px solid gray;
+  border-bottom: none;
+}
+
+.fa-xmark:hover {
+  color: red;
+  transform: scale(1.2);
+  transition: 0.2s ease-in;
+}
+
+.modal-buttons {
+  margin-left: auto;
+}

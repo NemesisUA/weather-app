@@ -17,8 +17,6 @@ function TripForm() {
 
   return (
     <div className="trip">
-      <h2>Create trip</h2>
-
       <form autoComplete="off" onSubmit={handleAddTrip}>
         <label htmlFor="city">
           <span className="required">* City</span>

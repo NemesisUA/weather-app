@@ -4,6 +4,7 @@ import TripForm from './components/newTripForm/TripForm';
 import Search from './components/search/Search';
 import TodayWeatherCard from './components/todayWeatherCard/TodayWeatherCard';
 import './App.css';
+import Modal from './components/modal/Modal';
 
 function App() {
   const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
@@ -13,6 +14,7 @@ function App() {
   const [city, setCity] = useState('London');
   const [loading, setLoading] = useState(false);
   const [todayWeather, setTodayWeather] = useState(null);
+  const [modal, setModal] = useState(false);
 
   async function fetchTodayWeather(param) {
     setLoading(true);
@@ -47,23 +49,27 @@ function App() {
     <div className="container">
       <div className='trips-block'>
         <h1>Weather App</h1>
-        <i class="fa-solid fa-house"></i>
 
-        <img
-          className='city-img'
-          src={'assets/weatherIcons/cloud.png'}
-
-          alt="" />
-
-
-        <TripsGallery trips={[{ name: 'lon' }, { name: 'ber' }]} />
-
-        <TripForm />
-
+        {
+          modal && (
+            <Modal setModal={setModal} />
+          )
+        }
         <Search
           city={city}
           setCity={setCity}
           handleSearch={handleSearch} />
+
+        <div className='trips-wrapper'>
+          <TripsGallery trips={[{ name: 'lon' }, { name: 'ber' }]} />
+
+          <button onClick={() => setModal(true)} className='open-modal-btn' >
+            <span>+</span>
+            <span>Add Trip</span>
+          </button>
+        </div>
+
+
       </div>
 
       {
