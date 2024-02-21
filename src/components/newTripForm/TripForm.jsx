@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTrip } from '../../store/tripSlice';
+import { addTrip, setActiveTrip } from '../../store/tripSlice';
+import isformValid from '../../utils/isFormValid';
 import './TripForm.css';
 
 function TripForm({ setModal }) {
   const dispatch = useDispatch();
 
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
   const handleAddTrip = (e) => {
     e.preventDefault();
-    dispatch(addTrip({ city, startDate, endDate }));
-    setModal(false);
+
+    if (isformValid(city, startDate, endDate)) {
+      const id = new Date().toISOString();
+      dispatch(addTrip({ id, city, startDate, endDate }));
+      dispatch(setActiveTrip({ id, activeCity: city, tripStart: startDate }))
+      setModal(false);
+    }
   }
 
   return (
@@ -27,7 +33,7 @@ function TripForm({ setModal }) {
           id="city"
           value={city}
           onChange={(e) => setCity(e.target.value)}>
-          <option value="" disabled selected>Plese select a city</option>
+          <option value="" disabled >Plese select a city</option>
           <option value="Berlin">Berlin</option>
           <option value="Paris">Paris</option>
           <option value="Tokyo">Tokyo</option>
