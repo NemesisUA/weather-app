@@ -5,7 +5,7 @@ function TripCard({ city, startDate, endDate }) {
     <div className='trip-card'>
       <img
         className='city-img'
-        src={`./assets/citiesImages/${city}.png`}
+        src={`./assets/citiesImages/${city}.jpg`}
         alt={city} />
       <h2>{city}</h2>
       <p><span>{startDate}</span> - <span>{endDate}</span></p>

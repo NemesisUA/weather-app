@@ -1,15 +1,35 @@
-.trip {
-  width: 300px;
-  height: 300px;
-  padding: 20px;
+.trip form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
 }
 
-input {
-  width: 100%;
-  margin: 10px 0;
+form label,
+form input,
+form select {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+form input,
+form select {
+  padding: 0.5rem 0.8rem;
+  border: 1px colid gray;
+  outline: none;
+  cursor: pointer;
 }
 
 .required {
   font-weight: bold;
   color: red;
+}
+
+.form-buttons-wrapper {
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  padding: 10px 15px;
+  border-top: 1px solid gray;
 }
