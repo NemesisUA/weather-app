@@ -5,6 +5,7 @@ import Search from './components/search/Search';
 import TodayWeatherCard from './components/todayWeatherCard/TodayWeatherCard';
 import './App.css';
 import Modal from './components/modal/Modal';
+import ForecastGallery from './components/forecastGallery/ForecastGallery';
 
 function App() {
   const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
@@ -20,7 +21,6 @@ function App() {
     <div className="container">
       <div className='trips-block'>
         <h1>Weather App</h1>
-
         {
           modal && (
             <Modal setModal={setModal} />
@@ -39,11 +39,9 @@ function App() {
             <span>Add Trip</span>
           </button>
         </div>
-
+        <ForecastGallery />
       </div>
-
       <TodayWeatherCard />
-
     </div>
   );
 }

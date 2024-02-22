@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './TodayWeatherCard.css'
 
-
 function TodayWeatherCard() {
-
   const [loading, setLoading] = useState(false);
   const [todayWeather, setTodayWeather] = useState(null);
   const activeTrip = useSelector(state => state.trips.activeTrip);
@@ -42,7 +40,6 @@ function TodayWeatherCard() {
       <h3>{activeTrip.activeCity}</h3>
       <p>Today is:</p>
       <p>{new Date(todayWeather?.days[0].datetime).toDateString()}</p>
-
       <p>Trip starts:</p>
       <p>{activeTrip.tripStart}</p>
     </div>

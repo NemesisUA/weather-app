@@ -1,0 +1,14 @@
+.forecast-gallery {
+  margin-top: 40px;
+}
+
+.forecast-gallery h3 {
+  margin-bottom: 20px;
+}
+
+.forecast-list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+}
