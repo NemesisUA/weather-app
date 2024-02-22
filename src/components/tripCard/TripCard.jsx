@@ -1,8 +1,21 @@
-import './TripCard.css'
+import { useDispatch } from "react-redux";
+import { setActiveTrip } from "../../store/tripSlice";
+import './TripCard.css';
 
-function TripCard({ city, startDate, endDate }) {
+function TripCard({ id, city, startDate, endDate }) {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setActiveTrip({
+      id: id,
+      activeCity: city,
+      tripStart: startDate,
+      tripEnd: endDate,
+    }))
+  }
+
   return (
-    <div className='trip-card'>
+    <div className='trip-card' onClick={handleClick}>
       <img
         className='city-img'
         src={`./assets/citiesImages/${city}.jpg`}
