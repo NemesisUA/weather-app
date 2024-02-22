@@ -1,15 +1,23 @@
+import { useState } from 'react';
 import './Search.css'
+import { useDispatch } from 'react-redux';
 
-function Search({ city, setCity, handleSearch }) {
+function Search() {
+  const [query, setQuery] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSearch = () => {
+    setQuery('sorry, didn`t finished(');
+  }
 
 
   return (
     <div className="serch-engine">
       <input
         className='search-input'
-        placeholder='Search your trip'
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
+        placeholder="Search a trip"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
 
       <button onClick={handleSearch}>

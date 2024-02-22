@@ -66,6 +66,12 @@ input {
   cursor: pointer;
 }
 
+.search-block {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
 @media screen and (max-width: 991px) {
   .container {
     flex-direction: column;
