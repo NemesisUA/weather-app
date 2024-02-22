@@ -1,0 +1,25 @@
+.counter {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.counter-text {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
