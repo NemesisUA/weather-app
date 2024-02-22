@@ -17,7 +17,7 @@ function TripForm({ setModal }) {
     if (isformValid(city, startDate, endDate)) {
       const id = new Date().toISOString();
       dispatch(addTrip({ id, city, startDate, endDate }));
-      dispatch(setActiveTrip({ id, activeCity: city, tripStart: startDate }))
+      dispatch(setActiveTrip({ id, activeCity: city, tripStart: startDate, tripEnd: endDate }))
       setModal(false);
     }
   }

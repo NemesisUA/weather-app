@@ -7,27 +7,27 @@ function TodayWeatherCard() {
   const [todayWeather, setTodayWeather] = useState(null);
   const activeTrip = useSelector(state => state.trips.activeTrip);
 
-  async function fetchTodayWeather(param) {
-    setLoading(true);
+  useEffect(() => {
+    async function fetchTodayWeather(param) {
+      setLoading(true);
 
-    try {
-      const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
-      const response = await fetch(
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${param}/today?unitGroup=metric&include=days&key=${myApiKey}&contentType=json`
-      );
+      try {
+        const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
+        const response = await fetch(
+          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${param}/today?unitGroup=metric&include=days&key=${myApiKey}&contentType=json`
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (data) {
-        setTodayWeather(data);
+        if (data) {
+          setTodayWeather(data);
+          setLoading(false);
+        }
+      } catch (e) {
         setLoading(false);
       }
-    } catch (e) {
-      setLoading(false);
     }
-  }
 
-  useEffect(() => {
     fetchTodayWeather(activeTrip.activeCity);
   }, [activeTrip.activeCity])
 

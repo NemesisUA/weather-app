@@ -4,35 +4,33 @@ import './ForecastGallery.css'
 import ForecastCard from "../forecastCard/ForecastCard";
 
 function ForecastGallery() {
-  const { activeCity, tripStart } = useSelector(state => state.trips.activeTrip);
+  const { activeCity, tripStart, tripEnd } = useSelector(state => state.trips.activeTrip);
   const [loading, setLoading] = useState(false);
   const [forecast, setForecast] = useState(null);
 
+  useEffect(() => {
+    async function fetchTripForecast(param, start, end) {
+      setLoading(true);
 
-  async function fetchTodayWeather(param, start, end) {
-    setLoading(true);
+      try {
+        const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
+        const response = await fetch(
+          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${param}/${start}/${end}?unitGroup=metric&include=days&key=${myApiKey}&contentType=json`
+        );
 
-    try {
-      const myApiKey = 'FZ9F2VRYXA295X39TLM8T9G53';
-      const response = await fetch(
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${param}/${start}/${end}?unitGroup=metric&include=days&key=${myApiKey}&contentType=json`
-      );
+        const data = await response.json();
 
-      const data = await response.json();
-
-      if (data) {
-        setForecast(data);
-        console.log('forecast', forecast);
+        if (data) {
+          setForecast(data);
+          setLoading(false);
+        }
+      } catch (e) {
         setLoading(false);
       }
-    } catch (e) {
-      setLoading(false);
     }
-  }
 
-  useEffect(() => {
-    fetchTodayWeather(activeCity, tripStart, '2024-03-14');
-  }, [])
+    fetchTripForecast(activeCity, tripStart, tripEnd);
+  }, [activeCity, tripStart, tripEnd])
 
   return loading ? (
     <p>Loading...</p>

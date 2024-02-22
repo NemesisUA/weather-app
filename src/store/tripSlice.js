@@ -7,12 +7,13 @@ const tripSlice = createSlice({
       id: '2024-02-21T16:58:14.042Z',
       activeCity: "Berlin",
       tripStart: '2024-03-10',
+      tripEnd: '2024-03-16'
     },
     trips: [{
       id: '2024-02-21T16:58:14.042Z',
       city: 'Berlin',
       startDate: '2024-03-10',
-      endDate: '2024-03-14',
+      endDate: '2024-03-16',
     }],
   },
   reducers: {
@@ -26,9 +27,12 @@ const tripSlice = createSlice({
     },
 
     setActiveTrip(state, action) {
-      state.activeTrip.id = action.payload.id;
-      state.activeTrip.activeCity = action.payload.activeCity;
-      state.activeTrip.tripStart = action.payload.tripStart;
+      state.activeTrip = {
+        id: action.payload.id,
+        activeCity: action.payload.activeCity,
+        tripStart: action.payload.tripStart,
+        tripEnd: action.payload.tripEnd,
+      }
     }
   }
 });
