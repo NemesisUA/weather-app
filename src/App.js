@@ -8,9 +8,7 @@ import Search from './components/search/Search';
 import Sort from './components/sort/Sort';
 
 function App() {
-  const [city, setCity] = useState('');
   const [modal, setModal] = useState(false);
-
 
   return (
     <div className="container">
