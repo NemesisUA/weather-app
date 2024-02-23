@@ -34,6 +34,7 @@
   cursor: pointer;
   margin-right: auto;
   margin-left: 0;
+  box-shadow: 0 0 3px gray;
 }
 
 .open-modal-btn:hover {

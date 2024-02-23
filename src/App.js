@@ -26,7 +26,7 @@ function App() {
         </div>
 
         <div className='trips-wrapper'>
-          <TripsGallery trips={[{ name: 'lon' }, { name: 'ber' }]} />
+          <TripsGallery />
 
           <button onClick={() => setModal(true)} className='open-modal-btn' >
             <span>+</span>

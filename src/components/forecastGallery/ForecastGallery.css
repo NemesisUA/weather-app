@@ -9,6 +9,7 @@
 .forecast-list {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
 }

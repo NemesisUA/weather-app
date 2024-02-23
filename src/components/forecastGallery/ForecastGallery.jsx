@@ -32,9 +32,7 @@ function ForecastGallery() {
     fetchTripForecast(activeCity, tripStart, tripEnd);
   }, [activeCity, tripStart, tripEnd])
 
-  return loading ? (
-    <p>Loading...</p>
-  ) : forecast && (<div className="forecast-gallery">
+  return forecast && (<div className="forecast-gallery">
     <h3>Trip Forecast:</h3>
     <ul className="forecast-list">
       {

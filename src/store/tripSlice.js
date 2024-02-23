@@ -10,21 +10,16 @@ const tripSlice = createSlice({
       tripEnd: '2024-03-16'
     },
     trips: [{
+      id: '2024-02-23T07:29:09.461Z',
+      city: 'London',
+      startDate: '2024-03-11',
+      endDate: '2024-03-13',
+    }, {
       id: '2024-02-21T16:58:14.042Z',
       city: 'Berlin',
       startDate: '2024-03-10',
       endDate: '2024-03-16',
-    }, {
-      id: '2024-02-21T16:58:14.042Z',
-      city: "Kyiv",
-      startDate: '2024-03-06',
-      endDate: '2024-03-09'
-    }, {
-      id: "2024-02-22T21:33:14.361Z",
-      city: "Tokyo",
-      startDate: "2024-03-16",
-      endDate: "2024-03-18"
-    },
+    }
     ],
   },
   reducers: {

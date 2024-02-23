@@ -16,7 +16,7 @@ form select {
 form input,
 form select {
   padding: 0.5rem 0.8rem;
-  border: 1px colid gray;
+  border: 1px solid gray;
   outline: none;
   cursor: pointer;
 }
