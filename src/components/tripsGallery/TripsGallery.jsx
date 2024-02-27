@@ -10,14 +10,14 @@ function TripsGallery({ cityQuery, needSort }) {
       {
         needSort ? (
           trips
-            .filter(trip => trip.city.includes(cityQuery))
+            .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
             .sort((a, b) => a.startDate.localeCompare(b.startDate))
             .map((trip) => (
               <TripCard key={trip.id} {...trip} />
             ))
         ) : (
           trips
-            .filter(trip => trip.city.includes(cityQuery))
+            .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
             .sort((a, b) => a.id.localeCompare(b.id) ? -1 : 1)
             .map((trip) => (
               <TripCard key={trip.id} {...trip} />
