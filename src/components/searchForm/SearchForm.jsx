@@ -9,14 +9,9 @@ function SearchForm({ setSearchParams, cityQuery, needSort }) {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    const form = e.target;
-
-    const city = form.search.value;
-    const sort = form.needSort.checked;
-
     setSearchParams({
-      city: city.trim() || '',
-      needSort: sort
+      city: search.trim() || '',
+      needSort: isChecked
     });
   }
 
@@ -31,15 +26,14 @@ function SearchForm({ setSearchParams, cityQuery, needSort }) {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button type='submit'>Search</button>
-
+        <button type='submit'>Apply</button>
 
         <input
           type="checkbox"
           name='needSort'
           id='sort'
           checked={isChecked}
-          onChange={(e) => setChecked(e.target.checked)}
+          onChange={() => setChecked(isChecked => !isChecked)}
         />
         <label htmlFor='sort' className='sort-label'>Sort by start date</label>
 

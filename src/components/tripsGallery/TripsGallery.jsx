@@ -18,7 +18,6 @@ function TripsGallery({ cityQuery, needSort }) {
         ) : (
           trips
             .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
-            .sort((a, b) => a.id.localeCompare(b.id) ? -1 : 1)
             .map((trip) => (
               <TripCard key={trip.id} {...trip} />
             ))
