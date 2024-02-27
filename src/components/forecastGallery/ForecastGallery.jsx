@@ -36,7 +36,10 @@ function ForecastGallery() {
     <h3>Trip Forecast:</h3>
     <ul className="forecast-list">
       {
-        forecast?.days.map((day) => (
+        loading && <p>Loading forecast for a trip...</p>
+      }
+      {
+        forecast && forecast?.days.map((day) => (
           <ForecastCard key={day.datetime} {...day} />
         ))
       }
