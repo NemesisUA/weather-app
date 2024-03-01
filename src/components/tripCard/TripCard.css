@@ -9,6 +9,10 @@
   border: 1px solid gray;
 }
 
+.active-card {
+  border: 1px solid blue;
+}
+
 .trip-card:hover {
   cursor: pointer;
   border: 1px solid blue;

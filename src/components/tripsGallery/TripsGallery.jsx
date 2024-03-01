@@ -6,6 +6,7 @@ import Pagination from '../pagination/Pagination.js'
 
 function TripsGallery({ cityQuery, needSort }) {
   const trips = useSelector(state => state.trips.trips);
+  const activeTrip = useSelector(state => state.trips.activeTrip);
 
   const [currentPage, setCurrentPage] = useState(1);
   const total = trips.length;
@@ -20,14 +21,14 @@ function TripsGallery({ cityQuery, needSort }) {
             .sort((a, b) => a.startDate.localeCompare(b.startDate))
             .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
             .map((trip) => (
-              <TripCard key={trip.id} {...trip} />
+              <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
             ))
         ) : (
           trips
             .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
             .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
             .map((trip) => (
-              <TripCard key={trip.id} {...trip} />
+              <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
             ))
         )
       }
