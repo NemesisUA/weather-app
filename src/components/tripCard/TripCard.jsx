@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setActiveTrip } from "../../store/tripSlice";
 import './TripCard.css';
+import formatDateString from "../../utils/formatDateString"
 
 function TripCard({ id, city, startDate, endDate, isActive }) {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function TripCard({ id, city, startDate, endDate, isActive }) {
         src={`./assets/citiesImages/${city}.jpg`}
         alt={city} />
       <h2>{city}</h2>
-      <p><span>{startDate}</span> - <span>{endDate}</span></p>
+      <p>{`${formatDateString(startDate)} - ${formatDateString(endDate)}`}</p>
     </div>
   )
 }
