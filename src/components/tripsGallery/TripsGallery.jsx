@@ -9,40 +9,44 @@ function TripsGallery({ cityQuery, needSort }) {
   const activeTrip = useSelector(state => state.trips.activeTrip);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const total = trips.length;
+
+  const tripsFiltered = trips.filter(trip => trip.city
+    .toLowerCase().includes(cityQuery.toLowerCase()));
+  const total = tripsFiltered.length;
   const limitPerPage = 3;
 
-  return (<div className='pagination-wrapper'>
-    <ul className="trips-gallery">
-      {
-        needSort ? (
-          trips
-            .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
-            .sort((a, b) => a.startDate.localeCompare(b.startDate))
-            .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
-            .map((trip) => (
-              <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
-            ))
-        ) : (
-          trips
-            .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
-            .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
-            .map((trip) => (
-              <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
-            ))
-        )
-      }
-    </ul>
+  return (
+    <div className='pagination-wrapper'>
+      <ul className="trips-gallery">
+        {
+          needSort === 'true' ? (
+            trips
+              .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
+              .sort((a, b) => a.startDate.localeCompare(b.startDate))
+              .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
+              .map((trip) => (
+                <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
+              ))
+          ) : (
+            trips
+              .filter(trip => trip.city.toLowerCase().includes(cityQuery.toLowerCase()))
+              .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
+              .map((trip) => (
+                <TripCard key={trip.id} isActive={trip.id === activeTrip.id} {...trip} />
+              ))
+          )
+        }
+      </ul>
 
-    <div className="container">
-      <Pagination
-        currentPage={currentPage}
-        total={total}
-        limit={limitPerPage}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      <div className="container">
+        <Pagination
+          currentPage={currentPage}
+          total={total}
+          limit={limitPerPage}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </div>
     </div>
-  </div>
   )
 }
 

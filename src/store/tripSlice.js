@@ -4,10 +4,10 @@ const tripSlice = createSlice({
   name: 'trips',
   initialState: {
     activeTrip: {
-      id: '2024-02-21T16:58:14.042Z',
+      id: '2024-03-02T16:58:14.042Z',
       activeCity: "Berlin",
-      tripStart: '2024-03-10',
-      tripEnd: '2024-03-16'
+      tripStart: '2024-03-20',
+      tripEnd: '2024-03-22'
     },
     trips: [{
       id: '2024-02-23T07:29:09.461Z',
@@ -16,16 +16,11 @@ const tripSlice = createSlice({
       endDate: '2024-03-13',
     }, {
       id: '2024-02-21T16:58:14.042Z',
-      city: 'Berlin',
+      city: 'Tokyo',
       startDate: '2024-03-10',
       endDate: '2024-03-16',
     }, {
-      id: '2024-03-1T07:29:09.461Z',
-      city: 'Tokyo',
-      startDate: '2024-03-03',
-      endDate: '2024-03-05',
-    }, {
-      id: '2024-03-1T16:58:14.042Z',
+      id: '2024-03-02T16:58:14.042Z',
       city: 'Berlin',
       startDate: '2024-03-20',
       endDate: '2024-03-22',
